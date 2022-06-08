@@ -5,3 +5,6 @@ class Employees(models.Model):
     email = models.EmailField()
     address = models.CharField(max_length=100)
     phone = models.IntegerField()
+    
+    def __str__(self):
+        return "Employees Data"
