@@ -20,10 +20,17 @@ def ADD(request):
         
         d=Employees(name=n,email=e,address=a,phone=p)
         d.save()
-        return redirect('read')
+        return redirect('home')
     return redirect(request, 'index.html')
 
 def EDIT(request):
     emp=Employees.objects.all()
     context ={'emp':emp}
     return redirect(request, 'index.html',context)
+
+def update(request, id):
+    emp = Employees.objects.get(id=id)
+    context = {
+    'emp': emp,
+    }
+    return render(request,'index.html',context)
