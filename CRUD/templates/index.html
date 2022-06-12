@@ -271,12 +271,12 @@
 								<label for="checkbox1"></label>
 							</span>
 						</td>
-                        <td>{{i.name}}</td>
+                        <td>{{i.name | upper | safe }}</td>
                         <td>{{i.email}}</td>
 						<td>{{i.address}}</td>
                         <td>{{i.phone}}</td>
                         <td>
-                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            <a href="#editEmployeeModal-{{forloop.counter}}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                             <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                         </td>
                     </tr>
@@ -334,11 +334,11 @@
 		</div>
 	</div>
 	<!-- Edit Modal HTML -->
-	
-	<div id="editEmployeeModal" class="modal fade">
+	{% for i in emp %}
+	<div id="editEmployeeModal-{{forloop.counter}}" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form >
+				<form>
 					<div class="modal-header">						
 						<h4 class="modal-title">Edit Employee</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -369,7 +369,7 @@
 			</div>
 		</div>
 	</div>
-	
+	{% endfor %}
 	<!-- Delete Modal HTML -->
 	<div id="deleteEmployeeModal" class="modal fade">
 		<div class="modal-dialog">

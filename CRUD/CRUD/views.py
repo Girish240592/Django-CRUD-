@@ -25,7 +25,7 @@ def ADD(request):
 
 def EDIT(request):
     emp=Employees.objects.all()
-    context ={'emp':emp}
+    context = {'emp':emp}
     return redirect(request, 'index.html',context)
 
 def update(request, id):
@@ -34,3 +34,4 @@ def update(request, id):
     'emp': emp,
     }
     return render(request,'index.html',context)
+
